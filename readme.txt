@@ -1,0 +1,1 @@
+En esta primera edicion del tragaperras, Este programa es capaz de generar una columna del tragaperras la cual se totalmente funcional la cual de tres valores distintos en cada una de sus filas y le indique a la persona si gano o no.
