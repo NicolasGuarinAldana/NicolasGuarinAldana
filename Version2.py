@@ -43,8 +43,8 @@ while True:
             print("has perdido")
     else:#Si el numero de lineas elejido es igual a 3
 
-        if c1f1 == c1f2 == c1f3 and c2f1 == c2f2 == c2f3 and c3f1 == c3f2 == c3f3
-
+        if c1f1 == c1f2 == c1f3 and c2f1 == c2f2 == c2f3 and c3f1 == c3f2 == c3f3:
+            print ("felicidades has ganado en las 3 lineas")
         elif c2f1 == c2f2 == c2f3 and c1f1 == c1f2 == c1f3 or c2f1 == c2f2 == c2f3 and c3f1 == c3f2 == c3f3 or c1f1 == c1f2 == c1f3 and c3f1 == c3f2 == c3f3:
             print ("felicidades has ganado en dos lineas") 
         elif c2f1 == c2f2 == c2f3 or c1f1 == c1f2 == c1f3 or c3f1 == c3f2 == c3f3:
