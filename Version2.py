@@ -25,12 +25,15 @@ while True:
     print("lINEA 2     ",c2f1,"    ", c2f2,"    ",  c2f3)
     print("lINEA 3     ",c3f1,"    ", c3f2,"    ",  c3f3)
 
-    if Num_lineas == 1:
+    #RESULTADOS 
+    
+    
+    if Num_lineas == 1: #Si el numero de lineas elejido es igual a 1
         if c2f1 == c2f2 == c2f3 or c1f1 == c1f2 == c1f3 or c3f1 == c3f2 == c3f3:
             print ("felicidades has ganado") 
         else:
             print("has perdido")
-    elif Num_lineas == 2:
+    elif Num_lineas == 2: #Si el numero de lineas elejido es igual a 2
         #Si l2 = l1                                         Si l2=l3                                         Si L1 = L3 
         if c2f1 == c2f2 == c2f3 and c1f1 == c1f2 == c1f3 or c2f1 == c2f2 == c2f3 and c3f1 == c3f2 == c3f3 or c1f1 == c1f2 == c1f3 and c3f1 == c3f2 == c3f3:
             print ("felicidades has ganado en dos lineas") 
@@ -38,7 +41,16 @@ while True:
             print ("ganaste solo en una linea")
         else:
             print("has perdido")
-    else:
+    else:#Si el numero de lineas elejido es igual a 3
+
+        if c1f1 == c1f2 == c1f3 and c2f1 == c2f2 == c2f3 and c3f1 == c3f2 == c3f3
+
+        elif c2f1 == c2f2 == c2f3 and c1f1 == c1f2 == c1f3 or c2f1 == c2f2 == c2f3 and c3f1 == c3f2 == c3f3 or c1f1 == c1f2 == c1f3 and c3f1 == c3f2 == c3f3:
+            print ("felicidades has ganado en dos lineas") 
+        elif c2f1 == c2f2 == c2f3 or c1f1 == c1f2 == c1f3 or c3f1 == c3f2 == c3f3:
+            print ("ganaste solo en una linea")
+        else:
+            print("has perdido")
         
     # Opciones para seguir jugando o dejar de jugar
     Seguir_apostando = input ("Escriba \"Si\" si desea seguir apostando, si no escriba \"No\" "      ).strip().lower()
