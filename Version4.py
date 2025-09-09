@@ -13,11 +13,17 @@ print("║ LINEA 3  →           💎  |  🍋  |  🍒          ║")
 print("╚════════════════════════════════════════════════╝")
 
 
-#Definir un saldo correcto
+# Definir un saldo correcto
 while True:
     try:
-        Saldo = int(input("Cuánto dinero desea Apostar: "))
+        Saldo = int(input("Cuánto dinero desea Apostar (la apuesta minima es 100): "))
+
+        if Saldo < 100:  
+            print("❌ El saldo debe ser un número positivo mayor que 100.")
+            continue
+
         break  
+
     except ValueError:
         print("❌ Por favor escriba un valor correcto (solo números).")
 
@@ -48,6 +54,11 @@ while True:
         try:
             Apuesta_por_Linea = int(input(f"¿Cuánto dinero desea apostar por línea? Tu saldo es: {Saldo} → "))
 
+            # Validación 0: no puede ser 0 o negativo
+            if Apuesta_por_Linea <= 0:
+                print("❌ La apuesta debe ser un número positivo mayor que 0.")
+                continue  
+
             # Validación 1: no puede ser mayor al saldo total
             if Apuesta_por_Linea > Saldo:
                 print("❌ No tiene el suficiente saldo para realizar esta apuesta.")
@@ -58,15 +69,18 @@ while True:
                 print(f"❌ Saldo insuficiente para {Num_lineas} líneas. Intente con una apuesta menor.")
                 continue  
 
-                # ✅ Si pasa las validaciones, aceptamos la apuesta
+            # ✅ Si pasa todas las validaciones, se acepta la apuesta
             break  
 
         except ValueError:
             print("❌ Por favor escriba un número válido.")
 
+
+
+    Saldo -= Apuesta_por_Linea
+
+
         
-
-
 
 
     #MOSTRAR LA MAQUINA EN FUNCIONAMIENTO
@@ -101,7 +115,9 @@ while True:
     #Si el numero de lineas elejido es igual a 1    
     if Num_lineas == 1: 
         if Linea1 == 1 or Linea2 == 1 or Linea3 == 1:
-            print ("felicidades has ganado") 
+            Apuesta_por_Linea *= 2
+            print (f"felicidades has ganado {Apuesta_por_Linea}")     
+            Saldo +=  Apuesta_por_Linea
         else:
             print("has perdido")
 
@@ -109,9 +125,16 @@ while True:
     elif Num_lineas == 2: 
         
         if Linea1 == 1 and Linea2 == 1 or Linea1 == 1 and Linea3 == 1 or Linea2 == 1 and Linea3 == 1:
-            print ("felicidades has ganado en dos lineas") 
+            Apuesta_por_Linea *=4
+            Saldo += Apuesta_por_Linea
+            print (f"felicidades has ganado en dos lineas, ganaste {Apuesta_por_Linea} ")  
+            
+              
         elif Linea1 == "Verdadero" or Linea2 == "Verdadero" or Linea3 == "Verdadero":
-            print ("ganaste solo en una linea")
+            Apuesta_por_Linea *= 2
+            print (f"ganaste solo en una linea, ganaste {Apuesta_por_Linea}")
+            Saldo += Apuesta_por_Linea 
+
         else:
             print("has perdido")
 
@@ -119,15 +142,24 @@ while True:
     else:
 
         if Linea1 == 1 and Linea2 == 1 and Linea3 == 1:
-            print ("felicidades has ganado en las 3 lineas")
+            Apuesta_por_Linea *=6
+            Saldo += Apuesta_por_Linea
+            print (f"felicidades has ganado en las 3 lineas, ganaste {Apuesta_por_Linea}")
         elif  Linea1 == 1 and Linea2 == 1 or Linea1 == 1 and Linea3 == 1 or Linea2 == 1 and Linea3 == 1:
-            print ("felicidades has ganado en dos lineas") 
+            Apuesta_por_Linea *=4
+            Saldo += Apuesta_por_Linea
+            print (f"felicidades has ganado en dos lineas, ganaste {Apuesta_por_Linea} ")  
         elif Linea1 == 1 or Linea2 == 1 or Linea3 == 1:
-            print ("ganaste solo en una linea")
+            Apuesta_por_Linea *= 2
+            print (f"ganaste solo en una linea, ganaste {Apuesta_por_Linea}")
+            Saldo += Apuesta_por_Linea 
+
+
         else:
             print("has perdido")
         
     # Opciones para seguir jugando o dejar de jugar
+    print (f"Tu saldo es igual a {Saldo}")
     Seguir_apostando = input ("Escriba \"Si\" si desea seguir apostando, si no escriba \"No\" "      ).strip().lower()
     if Seguir_apostando != "si":
         print ("Gracias por jugar")
